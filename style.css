@@ -1,0 +1,535 @@
+/*====================
+PCを基本設計にする
+ - 1280px〜：大型PC
+ - 960px〜1279px：小型PC
+ - 600px〜959px：タブレット
+ - 480px〜599px：スマートフォン横
+ - 〜479px：スマートフォン縦
+====================*/
+ 
+ 
+ 
+ /* PC・タブレット・スマホ共通 */
+body {
+  margin:0;
+  padding:0;
+  line-height: 1.5em;
+  color:#444;
+  font-family: Lato, 游ゴシック体, YuGothic, "YuGothic M", sans-serif;
+  background-color: rgba(213, 203, 204, 0.5);
+  }
+  p{
+    font-size:15px;
+    margin:0;
+    padding:0;
+  }
+  .header{
+    position: fixed;
+    top: 0;
+    margin:0;
+    width:100%;
+    background-color: rgba(97, 63, 63, 0.5);
+    z-index: 2;
+  }
+
+  /* ヘッダー */
+  .header-nav h1{
+    height: 100px;
+    line-height: 100px;
+    font-size: 1.8em;
+    margin:0;
+    text-align: center;
+    float: left;
+    letter-spacing: 1px;
+    text-decoration: none;
+    padding-left:30px;
+  }
+  .header-list{
+    height: 100px;
+    line-height: 100px;
+  }
+  .header a{
+    font-family: 'PT Serif', serif;
+    color:#f0f0f0;
+    text-decoration: none;
+  }
+
+  /* ナビゲーション */
+  .header-nav{
+    position: relative;
+    overflow:hidden;
+  }
+  .header-list{
+    position: absolute;
+    list-style: none;
+    margin:0;
+    right: 15px;
+  }
+  .header-item{
+    float:left;
+    font-size: 15px;
+    padding:0 30px;
+  }
+  
+  /* top画像 */
+  .top-img {
+    width:100vw;
+  }
+  
+  /* サイト横幅 */
+  .site-width {
+    width: 80%;
+    margin:0 auto;
+    padding: 15px 20px;
+  }
+  
+  .main {
+    padding-top: 20px;
+    padding-bottom:60px;
+  }
+  .main h1 {
+    font-family: 'PT Serif', serif;
+    font-size: 26px;
+    overflow: hidden;
+    text-align: center;
+    padding:50px 0;
+  }
+  .main h1 span {
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 0 1em;
+    text-align: left;
+  }
+  .main h1 span::before,
+  .main h1 span::after {
+    position: absolute;
+    top: 50%;
+    content: '';
+    width: 500%;
+    height: 1px;
+    background-color: #ccc;
+  }
+  .main h1 span::before {
+    right: 100%;
+  }
+  .main h1 span::after {
+    left: 100%;
+  }
+  .about p,
+  .chocolate p {
+    text-align: center;
+  }
+  .about {
+    position: relative;
+    padding-bottom: 50px;
+  }
+  
+  /*ショコラティエ紹介*/
+  .chocolatier{
+    height:auto;
+    padding: 30px 70px 70px 0;
+    z-index: 1;
+    box-sizing:border-box;
+    width:50%;
+  }
+  .intro {
+    padding-top:90px;
+    width:100%;
+    margin:0 auto;
+  }
+  .intro-wrap{
+    float:right;
+    box-sizing:border-box;
+    width:50%;
+  }
+  .intro h2{
+    padding: .25em 0 .5em .75em;
+    border-left: 6px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    font-family: 'PT Serif', serif;
+  }
+  .intro h3{
+    padding-left:10px;
+  }
+  .intro-year{
+    width: 20px;
+  }
+  .intro-history{
+    width:80%;
+  }
+
+  /* アクセス */
+  .access{
+    text-align:center;
+  }
+  .access-gmap {
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    }
+  .access-gmap iframe {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    float: left;
+    margin: 20px auto;
+    }
+    .addr dl{
+      text-align:left;
+      display:inline-block;
+    }
+    .addr dt{
+      float:left;
+      padding-right:20px;
+    }
+    .addr dd{
+      padding-bottom:20px;
+    }
+    .line{
+      border-top: solid 2px #ceb7b7;
+      padding-top:20px;
+      width:100%;
+    }
+
+    /* お問い合わせフォーム */
+    .contact {
+      margin-bottom: 150px;
+    }
+    input,textarea {
+      margin-top: 5px;
+      margin-bottom:5px;
+    }
+    input[type="text"], input[type="email"]{
+      border: solid 1px #333;
+      background: transparent;
+      padding: 10px;
+      box-sizing: border-box;
+      outline:none;
+    }
+    textarea {
+      border: solid 1px #333;
+      background: transparent;
+      padding: 10px;
+      box-sizing: border-box;
+      outline:none;
+    }
+    input[type="submit"] {
+      background: #333;
+      border: none;
+      color: #fff;
+      float: right;
+    }
+    input[type="text"]:focus, 
+    input[type="email"]:focus,
+    textarea:focus{
+      box-shadow: 0 0 7px #97788e;
+      border: 1px solid #97788e;
+    }
+    input[type="submit"]:hover {
+      background: #6d6d6d;
+      cursor:pointer;
+    }
+
+    /* バリデーション */
+    .err_msg {
+     color:#ff4d4b;
+    }
+    
+    /* エラー時 */
+    .has-error input, .has-error textarea {
+      border: 1px solid #ff4d4b;
+    }
+    .has-error　{
+      color: #ff4d4b;
+    }
+
+
+       
+    /*サクセス時*/
+    .has-success input, .has-success textarea {
+      border: 1px solid #333;
+    }
+    .has-success label {
+      color: #333;
+    }
+     
+
+    /*フッター*/
+    footer {
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      color: #ccc;
+      background-color: #444;
+      letter-spacing: 1px;
+      font-family: 'PT Serif', serif;
+    }
+    footer a {
+      color:#ccc;
+      letter-spacing: 1px;
+    }
+ 
+ 
+/* 960px以上：PC
+------------------------------ */
+@media screen and (min-width:960px) {
+
+  /* トップ画像 */
+  .top-img {
+    height:100vh;
+  }
+
+  /* ヘッダー */
+  .header-item a {
+    letter-spacing: 1px;
+    display: inline-block;
+    transition: .3s;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  .header-item a:hover {
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+  }
+
+  /* ショコラティエ 略歴 */
+  .intro-wrap table{
+    padding-left:10px;
+  }
+  .intro-year, .intro-history{
+    font-size:15px;
+  }
+
+  /* チョコレート紹介 */
+  .chocolate {
+    clear: both;
+    overflow: hidden;
+  }
+  .chocolate p{
+    text-align:center;
+  }
+  .chocolate-wrap{
+    padding-top:10px;
+  }
+  .chocolate-wrap img {
+    display: block;
+    float: left;
+    height:260px;
+    width:260px;
+    padding-top: 15px;
+    padding-right: 30px;
+    padding-left: 60px;
+    padding-bottom: 50px;
+    transition-duration: 0.3s;
+  }
+  .chocolate-wrap img:hover {
+    opacity: 0.6;
+    transition-duration: 0.3s;
+  }
+  
+  /*アクセス*/
+  .access {
+    clear:both;
+    overflow: hidden;
+  }
+  .addr{
+    font-size:15px;
+  }
+  .addr dt{
+    padding-left:30px;
+  }
+  .addr dd{
+    padding-right:30px;
+    padding-left:150px;
+  }
+  
+  
+  /*お問い合わせ*/
+  .contact h1 {
+    margin-bottom: 50px;
+  }
+  form {
+    width: 50%;
+    margin:0 auto;
+  }
+  input,textarea {
+    font-size:15px;
+  }
+  input[type="text"], input[type="email"]{
+    width:100%;
+    height:60px;
+  }
+  textarea {
+    width: 100%;
+    height: 300px;
+  }
+  input[type="submit"] {
+    padding: 15px 30px;
+  }
+  .err_msg{
+    font-size:15px;
+  }
+  
+}
+
+ 
+ 
+/* 959pxまで：（スマホ・タブレット）
+------------------------------ */
+@media screen and (max-width:959px) { 
+ 
+  body{
+    line-height:1em;
+  }
+  p{
+    font-size:0.8em;
+  }
+
+  /* トップ画像 */
+  .top-img {
+    height:75vh;
+  }
+
+
+  /* ナビゲーション */
+  .header-list{
+    margin:0;
+    right:2px;
+  }
+  .header-nav h1{
+    font-size:0.9em;
+    padding:0 10px;
+  }
+  .header-item{
+    font-size: 0.8em;
+    padding:0 3px;
+  }
+  .header-item a {
+    letter-spacing: 1px;
+    display: inline-block;
+    transition: .3s;
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  .header-item a:hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  .main{
+    padding-bottom:0;
+  }
+  .main h1{
+    font-size:1em;
+    padding:25px 0;
+  }
+
+  /* ショコラティエ  */
+  .chocolatier{
+    max-width:80%;
+    height:auto;
+    z-index: 1;
+    padding:50px 10px 20px 10px;
+    margin:0 10%;
+    box-sizing:border-box;
+    width:80%;
+  }
+  .intro {
+    padding:10px 0 15px 0;
+    width:100%;
+    margin:0 auto;
+  }
+  .intro-wrap{
+    box-sizing:border-box;
+    width:80%;
+    margin:0 10%;
+  }
+  .intro h2{
+    font-size:0.9em;
+  } 
+  .intro h3{
+    font-size:0.7em;
+  }
+  .intro-year, .intro-history{
+    font-size:0.8em;
+  }
+  .intro-year{
+    width:30%;
+  }
+  .intro-history{
+    width:70%;
+  }
+
+  /* チョコレート */
+  .chocolate {
+    clear: both;
+    overflow: hidden;
+    width:100%;
+  }
+  .chocolate p{
+    text-align:center;
+  }
+  .chocolate-wrap{
+    padding-top:10px;
+  }
+  .chocolate-item {
+    padding-top:15px;
+    transition-duration: 0.3s;
+    width:80%;
+    margin:0 10%;
+  }
+  .chocolate-item:not(.last){
+    padding-bottom:30px;
+  }
+  
+  .chocolate-item:hover {
+    opacity: 0.6;
+    transition-duration: 0.3s;
+  }
+
+  /* アクセス */
+.addr{
+  font-size:0.8em;
+}
+.addr dt{
+  padding-left:10px;
+}
+.addr dd{
+  padding-left:40px;
+  padding-right:10px;
+}
+
+  /*お問い合わせ*/
+form {
+  margin:0 5%;
+  width:90%;
+}
+input,textarea {
+  font-size:0.8em;
+}
+input[type="text"], input[type="email"]{
+  width:100%;
+  height:30px;
+}
+textarea {
+    width: 100%;
+    height: 200px; 
+}
+input[type="submit"] {
+  padding: 10px 20px;
+}
+.err_msg{
+  font-size:0.8em;
+}
+
+footer{
+  font-size:0.8em;
+}
+ 
+}
+
+    
